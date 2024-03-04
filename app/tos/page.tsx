@@ -11,7 +11,7 @@ const TermsOfService = () => {
 
       <h2 className="text-2xl font-bold mb-2">1. ACCEPTANCE OF TERMS</h2>
       <p className="mb-4">
-        By accessing or using this website zeazh.com (the "Site") and any related services (collectively, the "Service"), you agree to abide by and be bound by these Terms of Service.
+        By accessing or using this website zeazh.com  and any related services  you agree to abide by and be bound by these Terms of Service.
       </p>
 
       <h2 className="text-2xl font-bold mb-2">2. USE OF THE SERVICE</h2>
@@ -24,7 +24,7 @@ const TermsOfService = () => {
 
       <h2 className="text-2xl font-bold mb-2">3. USER CONTENT</h2>
       <p className="mb-4">
-        <span className="font-bold">3.1 Responsibility:</span> You are solely responsible for the content you post on the Site ("User Content"). You agree not to post User Content that violates any applicable laws or regulations.
+        <span className="font-bold">3.1 Responsibility:</span> You are solely responsible for the content you post on the Site . You agree not to post User Content that violates any applicable laws or regulations.
       </p>
       <p className="mb-4">
         <span className="font-bold">3.2 License:</span> By submitting User Content, you grant zeazh a worldwide, non-exclusive, royalty-free license to use, reproduce, modify, adapt, publish, translate, create derivative works from, distribute, and display such content.
@@ -42,7 +42,7 @@ const TermsOfService = () => {
 
       <h2 className="text-2xl font-bold mb-2">6. DISCLAIMER OF WARRANTIES</h2>
       <p className="mb-4">
-        The Service is provided "as is" without any warranties, expressed or implied.
+        The Service is provided as it is without any warranties, expressed or implied.
       </p>
 
       <h2 className="text-2xl font-bold mb-2">7. LIMITATION OF LIABILITY</h2>
