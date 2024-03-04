@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import ThemeToggler from "./ThemeToggler";
 import menuData from "./menuData";
+import React, { SetStateAction, Dispatch } from 'react';
 
 const Header = () => {
   // Navbar toggle
@@ -27,8 +28,8 @@ const Header = () => {
   });
 
   // submenu handler
-  const [openIndex, setOpenIndex] = useState(-1);
-  const handleSubmenu = (index: SetStateAction<number>) => {
+const [openIndex, setOpenIndex] = useState<number | null>(-1);
+const handleSubmenu = (index: number | null) => {
     if (openIndex === index) {
       setOpenIndex(-1);
     } else {
@@ -96,32 +97,32 @@ const Header = () => {
                     }`}
                   />
                 </button>
-                <nav
-                  id="navbarCollapse"
-                  className={`navbar absolute right-0 z-30 w-[250px] rounded border-[.5px] border-body-color/50 bg-white px-6 py-4 duration-300 dark:border-body-color/20 dark:bg-dark lg:visible lg:static lg:w-auto lg:border-none lg:!bg-transparent lg:p-0 lg:opacity-100 ${
-                    navbarOpen
-                      ? "visibility top-full opacity-100"
-                      : "invisible top-[120%] opacity-0"
+                 <nav
+        id="navbarCollapse"
+        className={`navbar absolute right-0 z-30 w-[250px] rounded border-[.5px] border-body-color/50 bg-white px-6 py-4 duration-300 dark:border-body-color/20 dark:bg-dark lg:visible lg:static lg:w-auto lg:border-none lg:!bg-transparent lg:p-0 lg:opacity-100 ${
+          navbarOpen
+            ? "visibility top-full opacity-100"
+            : "invisible top-[120%] opacity-0"
+        }`}
+      >
+        <ul className="block lg:flex lg:space-x-12">
+          {menuData.map((menuItem, index) => (
+            <li key={index} className="group relative">
+              {menuItem.path ? (
+                <Link
+                  href={menuItem.path as string} // Ensure menuItem.path is a string
+                  className={`flex py-2 text-base lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 ${
+                    usePathName === menuItem.path
+                      ? "text-primary dark:text-white"
+                      : "text-dark hover:text-primary dark:text-white/70 dark:hover:text-white"
                   }`}
                 >
-                  <ul className="block lg:flex lg:space-x-12">
-                    {menuData.map((menuItem, index) => (
-                      <li key={index} className="group relative">
-                        {menuItem.path ? (
-                          <Link
-                            href={menuItem.path}
-                            className={`flex py-2 text-base lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 ${
-                              usePathName === menuItem.path
-                                ? "text-primary dark:text-white"
-                                : "text-dark hover:text-primary dark:text-white/70 dark:hover:text-white"
-                            }`}
-                          >
-                            {menuItem.title}
-                          </Link>
+                  {menuItem.title}
+                </Link>
                         ) : (
                           <>
                             <p
-                              onClick={() => handleSubmenu(index)}
+                               onClick={() => handleSubmenu(index)}
                               className="flex cursor-pointer items-center justify-between py-2 text-base text-dark group-hover:text-primary dark:text-white/70 dark:group-hover:text-white lg:mr-0 lg:inline-flex lg:px-0 lg:py-6"
                             >
                               {menuItem.title}
@@ -141,15 +142,16 @@ const Header = () => {
                                 openIndex === index ? "block" : "hidden"
                               }`}
                             >
-                              {menuItem.submenu.map((submenuItem, index) => (
-                                <Link
-                                  href={submenuItem.path}
-                                  key={index}
-                                  className="block rounded py-2.5 text-sm text-dark hover:text-primary dark:text-white/70 dark:hover:text-white lg:px-3"
-                                >
-                                  {submenuItem.title}
-                                </Link>
-                              ))}
+                              {menuItem.submenu && menuItem.submenu.length > 0 && (
+  menuItem.submenu.map((submenuItem, index) => (
+    <Link
+      href={submenuItem.path as string} // Explicitly specify the type as string
+      key={index}
+      className="block rounded py-2.5 text-sm text-dark hover:text-primary dark:text-white/70 dark:hover:text-white lg:px-3"
+    >
+      {submenuItem.title}
+    </Link>
+  )))}
                             </div>
                           </>
                         )}
