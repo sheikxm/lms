@@ -71,9 +71,5 @@
   "devDependencies": {
     "prisma": "^5.3.0"
   },
-  {
-  "scripts": {
-    "lint": "next lint"
-  }
-}
+  
 }
