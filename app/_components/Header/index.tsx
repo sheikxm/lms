@@ -28,7 +28,7 @@ const Header = () => {
 
   // submenu handler
   const [openIndex, setOpenIndex] = useState(-1);
-  const handleSubmenu = (index) => {
+  const handleSubmenu = (index: SetStateAction<number>) => {
     if (openIndex === index) {
       setOpenIndex(-1);
     } else {
