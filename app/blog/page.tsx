@@ -1,11 +1,13 @@
 import SingleBlog from "../_components/Blog/SingleBlog";
 import blogData from "../_components/Blog/blogData";
 import Breadcrumb from "../_components/Common/Breadcrumb";
-
+import Header from "../_components/Header";
+import Footer from "../_components/Footer";
 
 const Blog = () => {
   return (
     <>
+    <Header/>
       <Breadcrumb
         pageName="Blog Grid"
         description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In varius eros eget sapien consectetur ultrices. Ut quis dapibus libero."
@@ -85,6 +87,7 @@ const Blog = () => {
           </div>
         </div>
       </section>
+      <Footer/>
     </>
   );
 };
