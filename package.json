@@ -71,6 +71,12 @@
     "zustand": "^4.4.1"
   },
   "devDependencies": {
+<<<<<<< HEAD
     "prisma": "^5.10.2"
   }
+=======
+    "prisma": "^5.3.0"
+  }
+  
+>>>>>>> c7bc8c60b97f34729ac5e7f800318d4cc948ccb0
 }
