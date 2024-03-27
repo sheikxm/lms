@@ -44,14 +44,14 @@ export async function POST(
       {
         quantity: 1,
         price_data: {
-          currency: "USD",
+          currency: "INR",
           product_data: {
             name: course.title,
             description: course.description!,
           },
           unit_amount: Math.round(course.price! * 100),
-        }
-      }
+        },
+      },
     ];
 
     let stripeCustomer = await db.stripeCustomer.findUnique({
@@ -67,7 +67,7 @@ export async function POST(
       const customer = await stripe.customers.create({
         email: user.emailAddresses[0].emailAddress,
       });
-
+      console.log("user created");
       stripeCustomer = await db.stripeCustomer.create({
         data: {
           userId: user.id,

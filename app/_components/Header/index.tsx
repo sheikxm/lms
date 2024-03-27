@@ -65,7 +65,7 @@ const handleSubmenu = (index: number | null) => {
                   className="w-full dark:hidden"
                 />
                 <Image
-                  src="/images/logo/logo.svg"
+                  src="/public/zeazhlogo.png"
                   alt="logo"
                   width={140}
                   height={30}
